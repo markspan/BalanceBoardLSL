@@ -3,10 +3,17 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System;
-using System.Diagnostics;
 
 using SharpDX.DirectInput;
 using LSL;
+
+/*
+ * To read the XDF data correctly into MATLAB use load_xdf, and then do:
+ * 
+ * plot(double(bitshift(uint32(data'), -8)) / 2.7). 
+ * 
+ * The resulting data should be in kg then (approximately)
+ */
 
 namespace HIDlsl
 {
@@ -38,7 +45,7 @@ namespace HIDlsl
         private static void  MainForJoystick()
         {
             // Initialize LSL:
-            liblsl.StreamInfo info = new("BalanceBoard (USB)", "Mocap", 5, 100, liblsl.channel_format_t.cf_float32, "sddsfsdf");
+            liblsl.StreamInfo info = new("BalanceBoard (USB)", "Mocap", 5, 100, liblsl.channel_format_t.cf_int32, "sddsfsdf");
             liblsl.XMLElement Setup =  info.desc().append_child("Setup");
 
             Setup.append_child_value("Author", "M.M.Span");
@@ -91,6 +98,8 @@ namespace HIDlsl
             }
 
             // Instantiate the joystick
+            // TODO select the correct joystick.
+
             var joystick = new Joystick(directInput, joystickGuid);
 
             // Set BufferSize in order to use buffered data.
@@ -98,42 +107,45 @@ namespace HIDlsl
 
             // Acquire the joystick
             joystick.Acquire();
-            float[] lslout = new float[5];
-            
+            int[] lslout = new int[5];
+            bool newdata = false;
+            int saw = 0;
             // Poll events from joystick
             while (Linked == true)
             {
-                //joystick.Poll() ;
-                Stopwatch stopwatch = Stopwatch.StartNew();
-                var datas = joystick.GetBufferedData();
-                foreach (var state in datas)
+                while (newdata == false)
                 {
-                    switch (state.Offset)
+                    var datas = joystick.GetBufferedData();
+                    foreach (var state in datas)
                     {
-                        case JoystickOffset.X:
-                            lslout[0] = (float)(Convert.ToSingle(state.Value) / 575.0);
-                            break;
-                        case JoystickOffset.Y:
-                            lslout[1] =  (float)(Convert.ToSingle(state.Value) / 575.0);
-                            break;
-                        case JoystickOffset.Z:
-                            lslout[2] = (float)(Convert.ToSingle(state.Value) / 575.0);
-                            break;
-                        case JoystickOffset.RotationX:
-                            lslout[3] = (float)(Convert.ToSingle(state.Value) / 575.0);
-                            break;
-                        case JoystickOffset.RotationY:
-                            lslout[4] = state.Value;
-                            break;
-                        default:
-                            break;
+                        switch (state.Offset)
+                        {
+                            case JoystickOffset.X:
+                                lslout[0] = state.Value;
+                                break;
+                            case JoystickOffset.Y:
+                                lslout[1] = state.Value;
+                                break;
+                            case JoystickOffset.Z:
+                                lslout[2] = state.Value;
+                                break;
+                            case JoystickOffset.RotationX:
+                                lslout[3] = state.Value;
+                                break;
+                            case JoystickOffset.RotationY:
+                                lslout[4] = ++saw;
+                                if (saw >= 100)
+                                    saw = 0;
+                                newdata = true;
+                                break;
+                            default:
+                                break;
+                        }
                     }
+                    //Thread.Sleep(1);
                 }
-                
-                while (stopwatch.ElapsedMilliseconds < 9)
-                    Thread.Sleep(1);
-
                 outlet.push_sample(lslout);
+                newdata = false;
             }
         }
 
