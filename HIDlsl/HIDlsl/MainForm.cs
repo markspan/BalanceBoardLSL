@@ -21,29 +21,66 @@ namespace HIDlsl
     {
         static Boolean Linked = false;
         static Thread? LSLThread;
+        static Joystick? joystick;
+        static DirectInput? directInput = new();
 
         public MainForm()
         {
             InitializeComponent();
+            // Initialize DirectInput
+            
+
+            // Find a Joystick Guid
+
+            var joystickGuid = Guid.Empty;
+
+            //foreach (var deviceInstance in directInput.GetDevices(DeviceType.Gamepad, DeviceEnumerationFlags.AllDevices))
+            //    joystickGuid = deviceInstance.InstanceGuid;
+
+            // If Gamepad not found, look for a Joystick
+            if (joystickGuid == Guid.Empty)
+                foreach (var deviceInstance in directInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices))
+                    if (deviceInstance.ProductGuid.ToString().Contains("1b6f")) // Guid for the Adapted BalanceBoard
+                    {
+                        joystickGuid = deviceInstance.InstanceGuid;
+                        this.BoardSelector.Items.Add(deviceInstance.InstanceGuid);
+                        this.BoardSelector.SelectedIndex++;
+                    }
+
+            // If Joystick not found, throws an error
+            if (joystickGuid == Guid.Empty)
+            {
+                this.LinkButton.Text = "No Board Attached!";
+                this.LinkButton.Enabled = false;
+            } 
         }
-        
-        static void StartLSL(Button sender)
+
+        void StartLSL(Button sender)
         {
             if (Linked == false)
             {
                 Linked = true;
                 sender.Text = "Unlink";
-                LSLThread = new Thread(MainForJoystick);
+                LSLThread = new Thread(() => MainForJoystick((Guid)this.BoardSelector.SelectedItem));
                 LSLThread.Start();
             }
             else
             {
                 Linked = false;
                 sender.Text = "Link";
+                LSLThread = null;
             }
         }
-        private static void  MainForJoystick()
+        private static void  MainForJoystick(Guid Board)
         {
+
+            joystick = new Joystick(directInput, Board);
+
+            // Set BufferSize in order to use buffered data.
+            joystick.Properties.BufferSize = 128;
+
+            // Acquire the joystick
+            joystick.Acquire();
             // Initialize LSL:
             liblsl.StreamInfo info = new("BalanceBoard (USB)", "Mocap", 5, 100, liblsl.channel_format_t.cf_int32, "sddsfsdf");
             liblsl.XMLElement Setup =  info.desc().append_child("Setup");
@@ -77,36 +114,6 @@ namespace HIDlsl
 
             liblsl.StreamOutlet outlet = new(info);
 
-            // Initialize DirectInput
-            var directInput = new DirectInput();
-
-            // Find a Joystick Guid
-            var joystickGuid = Guid.Empty;
-
-            foreach (var deviceInstance in directInput.GetDevices(DeviceType.Gamepad, DeviceEnumerationFlags.AllDevices))
-                joystickGuid = deviceInstance.InstanceGuid;
-
-            // If Gamepad not found, look for a Joystick
-            if (joystickGuid == Guid.Empty)
-                foreach (var deviceInstance in directInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices))
-                    joystickGuid = deviceInstance.InstanceGuid;
-
-            // If Joystick not found, throws an error
-            if (joystickGuid == Guid.Empty)
-            {
-                return;
-            }
-
-            // Instantiate the joystick
-            // TODO select the correct joystick.
-
-            var joystick = new Joystick(directInput, joystickGuid);
-
-            // Set BufferSize in order to use buffered data.
-            joystick.Properties.BufferSize = 128;
-
-            // Acquire the joystick
-            joystick.Acquire();
             int[] lslout = new int[5];
             bool newdata = false;
             int saw = 0;
@@ -152,6 +159,11 @@ namespace HIDlsl
         private void LinkButton_Click(object sender, EventArgs e)
         {
             StartLSL((Button)sender);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
  }
