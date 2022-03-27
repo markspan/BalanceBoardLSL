@@ -1,4 +1,4 @@
-HIDlsl/.vs/*
+HIDlsl/.vs/**
 *.v2
 *.v1
 HIDlsl/.vs/HIDlsl/v17/.suo
