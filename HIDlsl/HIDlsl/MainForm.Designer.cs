@@ -30,9 +30,9 @@
         {
             this.LinkButton = new System.Windows.Forms.Button();
             this.NameLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.UniversityLabel = new System.Windows.Forms.Label();
             this.BoardSelector = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.BoardSelectLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LinkButton
@@ -54,14 +54,14 @@
             this.NameLabel.TabIndex = 1;
             this.NameLabel.Text = "BalanceBoardUSB";
             // 
-            // label1
+            // UniversityLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(111, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "University of Groningen";
+            this.UniversityLabel.AutoSize = true;
+            this.UniversityLabel.Location = new System.Drawing.Point(111, 24);
+            this.UniversityLabel.Name = "UniversityLabel";
+            this.UniversityLabel.Size = new System.Drawing.Size(132, 15);
+            this.UniversityLabel.TabIndex = 2;
+            this.UniversityLabel.Text = "University of Groningen";
             // 
             // BoardSelector
             // 
@@ -71,24 +71,23 @@
             this.BoardSelector.Size = new System.Drawing.Size(265, 23);
             this.BoardSelector.TabIndex = 3;
             // 
-            // label2
+            // BoardSelectLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "BoardGuid";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.BoardSelectLabel.AutoSize = true;
+            this.BoardSelectLabel.Location = new System.Drawing.Point(12, 84);
+            this.BoardSelectLabel.Name = "BoardSelectLabel";
+            this.BoardSelectLabel.Size = new System.Drawing.Size(63, 15);
+            this.BoardSelectLabel.TabIndex = 4;
+            this.BoardSelectLabel.Text = "BoardGuid";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 194);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BoardSelectLabel);
             this.Controls.Add(this.BoardSelector);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.UniversityLabel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.LinkButton);
             this.Name = "MainForm";
@@ -102,8 +101,8 @@
 
         private Button LinkButton;
         private Label NameLabel;
-        private Label label1;
+        private Label UniversityLabel;
         private ComboBox BoardSelector;
-        private Label label2;
+        private Label BoardSelectLabel;
     }
 }

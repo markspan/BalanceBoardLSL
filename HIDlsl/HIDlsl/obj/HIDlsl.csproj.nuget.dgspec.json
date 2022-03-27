@@ -1,23 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\p154492\\Documents\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {}
+    "D:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {}
   },
   "projects": {
-    "C:\\Users\\p154492\\Documents\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {
+    "D:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\p154492\\Documents\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
+        "projectUniqueName": "D:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
         "projectName": "HIDlsl",
-        "projectPath": "C:\\Users\\p154492\\Documents\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
-        "packagesPath": "C:\\Users\\p154492\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\p154492\\Documents\\HIDlsl\\HIDlsl\\obj\\",
+        "projectPath": "D:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
+        "packagesPath": "C:\\Users\\mmspa\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\p154492\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mmspa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

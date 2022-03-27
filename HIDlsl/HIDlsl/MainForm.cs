@@ -52,6 +52,7 @@ namespace HIDlsl
             {
                 this.LinkButton.Text = "No Board Attached!";
                 this.LinkButton.Enabled = false;
+                this.BackColor = Color.Pink;
             } 
         }
 
@@ -159,11 +160,6 @@ namespace HIDlsl
         private void LinkButton_Click(object sender, EventArgs e)
         {
             StartLSL((Button)sender);
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
  }

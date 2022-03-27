@@ -1,0 +1,12 @@
+HIDlsl\.vs\*
+*.v2
+*.v1
+HIDlsl/.vs/HIDlsl/v17/.suo
+HIDlsl/HIDlsl/obj/Debug/net7.0-windows/HIDlsl.assets.cache
+HIDlsl/HIDlsl/obj/Debug/net7.0-windows/HIDlsl.csproj.AssemblyReference.cache
+HIDlsl/HIDlsl/obj/Debug/net7.0-windows/HIDlsl.csproj.CoreCompileInputs.cache
+HIDlsl/HIDlsl/obj/Debug/net7.0-windows/HIDlsl.csproj.FileListAbsolute.txt
+*.cache
+HIDlsl/HIDlsl/obj/Debug/net7.0-windows/HIDlsl.GeneratedMSBuildEditorConfig.editorconfig
+HIDlsl/HIDlsl/obj/Debug/net7.0-windows/HIDlsl.pdb
+HIDlsl/HIDlsl/obj/project.nuget.cache
