@@ -15,29 +15,29 @@ namespace HIDlsl
 {
     public partial class MainForm : Form
     {
-        static Boolean Linked = false;
-        static Thread? LSLThread;
-        static Joystick? joystick;
-        static DirectInput? directInput = new();
-
-        List<DeviceInstance> deviceList = new();
+        volatile static Boolean Linked = false;
+        Thread? LSLThread;
+        Joystick? joystick;
+        readonly DirectInput? directInput;
+        List<DeviceInstance>? deviceList;
+        static DeviceInstance? device;
 
         public MainForm()
         {
             InitializeComponent();
 
+            directInput = new();
+            deviceList = new();
 
             // Find a Joystick Guid
-
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             foreach (var deviceInstance in directInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices))
-                if (deviceInstance.ProductGuid.ToString().Contains("1b6f")) // Guid for the Adapted BalanceBoard
+                if (deviceInstance.ProductGuid.ToString().Contains("1b6f") && deviceInstance.ProductGuid.ToString().Contains("9206")) // Guid for the Adapted BalanceBoard
                 {
                     this.BoardSelector.Items.Add(deviceInstance.ProductName);
-                    this.deviceList.Add(deviceInstance);
+                    deviceList.Add(deviceInstance);
                     this.BoardSelector.SelectedIndex++;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
+
 
             // If Joystick not found, throws an error
             if (deviceList.Count < 1)
@@ -54,7 +54,7 @@ namespace HIDlsl
             {
                 Linked = true;
                 sender.Text = "Unlink";
-                DeviceInstance device = deviceList.ElementAt(BoardSelector.SelectedIndex);
+                device = deviceList.ElementAt(BoardSelector.SelectedIndex);
                 LSLThread = new Thread(() => MainForJoystick((Guid)device.InstanceGuid));
                 LSLThread.Start();
             }
@@ -62,21 +62,24 @@ namespace HIDlsl
             {
                 Linked = false;
                 sender.Text = "Link";
+                // give the thread tiume to stop broadcasting.
+                Thread.Sleep(1000);
                 LSLThread = null;
             }
         }
-        private static void MainForJoystick(Guid Board)
+        private void MainForJoystick(Guid Board)
         {
 
             joystick = new Joystick(directInput, Board);
 
             // Set BufferSize in order to use buffered data.
-            joystick.Properties.BufferSize = 128;
+            joystick.Properties.BufferSize = 20;
 
             // Acquire the joystick
             joystick.Acquire();
+
             // Initialize LSL:
-            liblsl.StreamInfo info = new("BalanceBoard (USB)", "Mocap", 5, 100, liblsl.channel_format_t.cf_int32, "sddsfsdf");
+            liblsl.StreamInfo info = new(device.ProductName + "(USB)", "Mocap", 5, 100, liblsl.channel_format_t.cf_int32, "sddsfsdf");
             liblsl.XMLElement Setup = info.desc().append_child("Setup");
 
             Setup.append_child_value("Author", "M.M.Span");
@@ -147,6 +150,7 @@ namespace HIDlsl
                 outlet.push_sample(lslout);
                 newdata = false;
             }
+            System.GC.Collect();
         }
 
         private void LinkButton_Click(object sender, EventArgs e)
