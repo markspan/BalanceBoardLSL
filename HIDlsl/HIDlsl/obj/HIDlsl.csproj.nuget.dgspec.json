@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {}
+    "C:\\Users\\p154492\\Documents\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {}
   },
   "projects": {
-    "D:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {
+    "C:\\Users\\p154492\\Documents\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
+        "projectUniqueName": "C:\\Users\\p154492\\Documents\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
         "projectName": "HIDlsl",
-        "projectPath": "D:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
-        "packagesPath": "C:\\Users\\mmspa\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\obj\\",
+        "projectPath": "C:\\Users\\p154492\\Documents\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
+        "packagesPath": "C:\\Users\\p154492\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\p154492\\Documents\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\mmspa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\p154492\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -52,14 +52,6 @@
             "SharpDX.DirectInput": {
               "target": "Package",
               "version": "[4.2.0, )"
-            },
-            "SharpDX.XInput": {
-              "target": "Package",
-              "version": "[4.2.0, )"
-            },
-            "System.Reactive.Linq": {
-              "target": "Package",
-              "version": "[5.0.0, )"
             }
           },
           "imports": [

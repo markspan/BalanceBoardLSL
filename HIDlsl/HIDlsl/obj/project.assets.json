@@ -276,19 +276,6 @@
           "lib/netstandard1.3/SharpDX.DirectInput.dll": {}
         }
       },
-      "SharpDX.XInput/4.2.0": {
-        "type": "package",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1",
-          "SharpDX": "4.2.0"
-        },
-        "compile": {
-          "lib/netstandard1.1/SharpDX.XInput.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.1/SharpDX.XInput.dll": {}
-        }
-      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -680,31 +667,6 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.ObjectModel.dll": {}
-        }
-      },
-      "System.Reactive/5.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net5.0/System.Reactive.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0/System.Reactive.dll": {}
-        },
-        "build": {
-          "buildTransitive/net5.0/_._": {}
-        }
-      },
-      "System.Reactive.Linq/5.0.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Reactive": "5.0.0",
-          "System.Threading.Tasks.Extensions": "4.5.4"
-        },
-        "compile": {
-          "lib/netstandard2.0/System.Reactive.Linq.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Reactive.Linq.dll": {}
         }
       },
       "System.Reflection/4.3.0": {
@@ -1179,13 +1141,18 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
-      "System.Threading.Tasks.Extensions/4.5.4": {
+      "System.Threading.Tasks.Extensions/4.3.0": {
         "type": "package",
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        },
         "compile": {
-          "ref/netcoreapp2.1/_._": {}
+          "lib/netstandard1.0/_._": {}
         },
         "runtime": {
-          "lib/netcoreapp2.1/_._": {}
+          "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll": {}
         }
       },
       "System.Threading.Timer/4.3.0": {
@@ -1579,30 +1546,6 @@
         "lib/netstandard1.3/SharpDX.DirectInput.xml",
         "sharpdx.directinput.4.2.0.nupkg.sha512",
         "sharpdx.directinput.nuspec"
-      ]
-    },
-    "SharpDX.XInput/4.2.0": {
-      "sha512": "mH3soea+aVUaTuFrkwx+zohklDvCczcgtuTiZJbOCyS5GZ/F9se4BsRJ86xTA9baf0drXYbZQj152PN7lnjiwg==",
-      "type": "package",
-      "path": "sharpdx.xinput/4.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net40/SharpDX.XInput.dll",
-        "lib/net40/SharpDX.XInput.pdb",
-        "lib/net40/SharpDX.XInput.xml",
-        "lib/net45/SharpDX.XInput.dll",
-        "lib/net45/SharpDX.XInput.pdb",
-        "lib/net45/SharpDX.XInput.xml",
-        "lib/netstandard1.1/SharpDX.XInput.dll",
-        "lib/netstandard1.1/SharpDX.XInput.pdb",
-        "lib/netstandard1.1/SharpDX.XInput.xml",
-        "lib/uap10.0/SharpDX.XInput.dll",
-        "lib/uap10.0/SharpDX.XInput.pdb",
-        "lib/uap10.0/SharpDX.XInput.pri",
-        "lib/uap10.0/SharpDX.XInput.xml",
-        "sharpdx.xinput.4.2.0.nupkg.sha512",
-        "sharpdx.xinput.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -2901,53 +2844,6 @@
         "ref/xamarinwatchos10/_._",
         "system.objectmodel.4.3.0.nupkg.sha512",
         "system.objectmodel.nuspec"
-      ]
-    },
-    "System.Reactive/5.0.0": {
-      "sha512": "erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
-      "type": "package",
-      "path": "system.reactive/5.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/net5.0/_._",
-        "build/netcoreapp3.1/System.Reactive.dll",
-        "build/netcoreapp3.1/System.Reactive.targets",
-        "build/netcoreapp3.1/System.Reactive.xml",
-        "buildTransitive/net5.0/_._",
-        "buildTransitive/netcoreapp3.1/System.Reactive.targets",
-        "lib/net472/System.Reactive.dll",
-        "lib/net472/System.Reactive.xml",
-        "lib/net5.0-windows10.0.19041/System.Reactive.dll",
-        "lib/net5.0-windows10.0.19041/System.Reactive.xml",
-        "lib/net5.0/System.Reactive.dll",
-        "lib/net5.0/System.Reactive.xml",
-        "lib/netcoreapp3.1/_._",
-        "lib/netstandard2.0/System.Reactive.dll",
-        "lib/netstandard2.0/System.Reactive.xml",
-        "lib/uap10.0.16299/System.Reactive.dll",
-        "lib/uap10.0.16299/System.Reactive.pri",
-        "lib/uap10.0.16299/System.Reactive.xml",
-        "system.reactive.5.0.0.nupkg.sha512",
-        "system.reactive.nuspec"
-      ]
-    },
-    "System.Reactive.Linq/5.0.0": {
-      "sha512": "IB4/qlV4T1WhZvM11RVoFUSZXPow9VWVeQ1uDkSKgz6bAO+gCf65H/vjrYlwyXmojSSxvfHndF9qdH43P/IuAw==",
-      "type": "package",
-      "path": "system.reactive.linq/5.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net472/System.Reactive.Linq.dll",
-        "lib/net472/System.Reactive.Linq.xml",
-        "lib/netstandard2.0/System.Reactive.Linq.dll",
-        "lib/netstandard2.0/System.Reactive.Linq.xml",
-        "lib/uap10.0.16299/System.Reactive.Linq.dll",
-        "lib/uap10.0.16299/System.Reactive.Linq.pri",
-        "lib/uap10.0.16299/System.Reactive.Linq.xml",
-        "system.reactive.linq.5.0.0.nupkg.sha512",
-        "system.reactive.linq.nuspec"
       ]
     },
     "System.Reflection/4.3.0": {
@@ -4354,41 +4250,21 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "System.Threading.Tasks.Extensions/4.5.4": {
-      "sha512": "zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
+    "System.Threading.Tasks.Extensions/4.3.0": {
+      "sha512": "npvJkVKl5rKXrtl1Kkm6OhOUaYGEiF9wFbppFRWSMoApKzt2PiPHT2Bb8a5sAWxprvdOAtvaARS9QYMznEUtug==",
       "type": "package",
-      "path": "system.threading.tasks.extensions/4.5.4",
+      "path": "system.threading.tasks.extensions/4.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net461/System.Threading.Tasks.Extensions.dll",
-        "lib/net461/System.Threading.Tasks.Extensions.xml",
-        "lib/netcoreapp2.1/_._",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll",
         "lib/netstandard1.0/System.Threading.Tasks.Extensions.xml",
-        "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll",
-        "lib/netstandard2.0/System.Threading.Tasks.Extensions.xml",
         "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll",
         "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/netcoreapp2.1/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-        "system.threading.tasks.extensions.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "system.threading.tasks.extensions.4.3.0.nupkg.sha512",
+        "system.threading.tasks.extensions.nuspec"
       ]
     },
     "System.Threading.Timer/4.3.0": {
@@ -4589,31 +4465,29 @@
   "projectFileDependencyGroups": {
     "net7.0-windows7.0": [
       "SharpDX >= 4.2.0",
-      "SharpDX.DirectInput >= 4.2.0",
-      "SharpDX.XInput >= 4.2.0",
-      "System.Reactive.Linq >= 5.0.0"
+      "SharpDX.DirectInput >= 4.2.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mmspa\\.nuget\\packages\\": {},
+    "C:\\Users\\p154492\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
+      "projectUniqueName": "C:\\Users\\p154492\\Documents\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
       "projectName": "HIDlsl",
-      "projectPath": "D:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
-      "packagesPath": "C:\\Users\\mmspa\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\obj\\",
+      "projectPath": "C:\\Users\\p154492\\Documents\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
+      "packagesPath": "C:\\Users\\p154492\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\p154492\\Documents\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\mmspa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\p154492\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4647,14 +4521,6 @@
           "SharpDX.DirectInput": {
             "target": "Package",
             "version": "[4.2.0, )"
-          },
-          "SharpDX.XInput": {
-            "target": "Package",
-            "version": "[4.2.0, )"
-          },
-          "System.Reactive.Linq": {
-            "target": "Package",
-            "version": "[5.0.0, )"
           }
         },
         "imports": [

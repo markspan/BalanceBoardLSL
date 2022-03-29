@@ -1,11 +1,7 @@
-using System.Diagnostics;
-using System.Linq;
-using System.Reactive.Linq;
-using System.Threading.Tasks;
-using System;
 
-using SharpDX.DirectInput;
+//using System.Reactive.Linq;
 using LSL;
+using SharpDX.DirectInput;
 
 /*
  * To read the XDF data correctly into MATLAB use load_xdf, and then do:
@@ -24,36 +20,32 @@ namespace HIDlsl
         static Joystick? joystick;
         static DirectInput? directInput = new();
 
+        List<DeviceInstance> deviceList = new();
+
         public MainForm()
         {
             InitializeComponent();
-            // Initialize DirectInput
-            
+
 
             // Find a Joystick Guid
 
-            var joystickGuid = Guid.Empty;
-
-            //foreach (var deviceInstance in directInput.GetDevices(DeviceType.Gamepad, DeviceEnumerationFlags.AllDevices))
-            //    joystickGuid = deviceInstance.InstanceGuid;
-
-            // If Gamepad not found, look for a Joystick
-            if (joystickGuid == Guid.Empty)
-                foreach (var deviceInstance in directInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices))
-                    if (deviceInstance.ProductGuid.ToString().Contains("1b6f")) // Guid for the Adapted BalanceBoard
-                    {
-                        joystickGuid = deviceInstance.InstanceGuid;
-                        this.BoardSelector.Items.Add(deviceInstance.InstanceGuid);
-                        this.BoardSelector.SelectedIndex++;
-                    }
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            foreach (var deviceInstance in directInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices))
+                if (deviceInstance.ProductGuid.ToString().Contains("1b6f")) // Guid for the Adapted BalanceBoard
+                {
+                    this.BoardSelector.Items.Add(deviceInstance.ProductName);
+                    this.deviceList.Add(deviceInstance);
+                    this.BoardSelector.SelectedIndex++;
+                }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
             // If Joystick not found, throws an error
-            if (joystickGuid == Guid.Empty)
+            if (deviceList.Count < 1)
             {
                 this.LinkButton.Text = "No Board Attached!";
                 this.LinkButton.Enabled = false;
                 this.BackColor = Color.Pink;
-            } 
+            }
         }
 
         void StartLSL(Button sender)
@@ -62,7 +54,8 @@ namespace HIDlsl
             {
                 Linked = true;
                 sender.Text = "Unlink";
-                LSLThread = new Thread(() => MainForJoystick((Guid)this.BoardSelector.SelectedItem));
+                DeviceInstance device = deviceList.ElementAt(BoardSelector.SelectedIndex);
+                LSLThread = new Thread(() => MainForJoystick((Guid)device.InstanceGuid));
                 LSLThread.Start();
             }
             else
@@ -72,7 +65,7 @@ namespace HIDlsl
                 LSLThread = null;
             }
         }
-        private static void  MainForJoystick(Guid Board)
+        private static void MainForJoystick(Guid Board)
         {
 
             joystick = new Joystick(directInput, Board);
@@ -84,7 +77,7 @@ namespace HIDlsl
             joystick.Acquire();
             // Initialize LSL:
             liblsl.StreamInfo info = new("BalanceBoard (USB)", "Mocap", 5, 100, liblsl.channel_format_t.cf_int32, "sddsfsdf");
-            liblsl.XMLElement Setup =  info.desc().append_child("Setup");
+            liblsl.XMLElement Setup = info.desc().append_child("Setup");
 
             Setup.append_child_value("Author", "M.M.Span");
             Setup.append_child_value("Manifacturer", "University of Groningen");
@@ -150,7 +143,6 @@ namespace HIDlsl
                                 break;
                         }
                     }
-                    //Thread.Sleep(1);
                 }
                 outlet.push_sample(lslout);
                 newdata = false;
@@ -162,4 +154,4 @@ namespace HIDlsl
             StartLSL((Button)sender);
         }
     }
- }
+}
