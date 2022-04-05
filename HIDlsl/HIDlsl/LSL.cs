@@ -1,4 +1,6 @@
 ﻿using System.Runtime.InteropServices;
+#pragma warning disable CS8603 // Dereference of a possibly null reference.
+#pragma warning disable CS8601 // Dereference of a possibly null reference.
 
 
 namespace LSL

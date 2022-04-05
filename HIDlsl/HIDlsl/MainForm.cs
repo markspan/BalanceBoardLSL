@@ -3,6 +3,9 @@
 using LSL;
 using SharpDX.DirectInput;
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+#pragma warning disable CS8604 // Dereference of a possibly null reference.
+
 /*
  * To read the XDF data correctly into MATLAB use load_xdf, and then do:
  * 
@@ -18,16 +21,13 @@ namespace HIDlsl
         volatile static Boolean Linked = false;
         Thread? LSLThread;
         Joystick? joystick;
-        readonly DirectInput? directInput;
-        List<DeviceInstance>? deviceList;
-        static DeviceInstance? device;
+        readonly DirectInput? directInput = new();
+        readonly List<DeviceInstance>? deviceList = new();
+        DeviceInstance? device;
 
         public MainForm()
         {
             InitializeComponent();
-
-            directInput = new();
-            deviceList = new();
 
             // Find a Joystick Guid
             foreach (var deviceInstance in directInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices))
@@ -37,8 +37,6 @@ namespace HIDlsl
                     deviceList.Add(deviceInstance);
                     this.BoardSelector.SelectedIndex++;
                 }
-
-
             // If Joystick not found, throws an error
             if (deviceList.Count < 1)
             {
@@ -62,7 +60,7 @@ namespace HIDlsl
             {
                 Linked = false;
                 sender.Text = "Link";
-                // give the thread tiume to stop broadcasting.
+                // give the thread time to stop broadcasting.
                 Thread.Sleep(1000);
                 LSLThread = null;
             }
@@ -125,18 +123,24 @@ namespace HIDlsl
                         switch (state.Offset)
                         {
                             case JoystickOffset.X:
+                                // Left Bottom Sensor
                                 lslout[0] = state.Value;
                                 break;
                             case JoystickOffset.Y:
+                                // Left Top Sensor
                                 lslout[1] = state.Value;
                                 break;
                             case JoystickOffset.Z:
+                                // Right Top Sensor
                                 lslout[2] = state.Value;
                                 break;
                             case JoystickOffset.RotationX:
+                                // Right Bottom Sensor
                                 lslout[3] = state.Value;
                                 break;
                             case JoystickOffset.RotationY:
+                                // RotationY axis is the sawtooth axis. If this value changes a new sample is recorded.
+                                // This method anables sampling with a fixed sample frequency: the sample frequency of the BalanceBoard.
                                 lslout[4] = ++saw;
                                 if (saw >= 100)
                                     saw = 0;
