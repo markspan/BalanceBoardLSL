@@ -1,29 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\p154492\\Documents\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {}
+    "C:\\Users\\P154492\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {}
   },
   "projects": {
-    "C:\\Users\\p154492\\Documents\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {
+    "C:\\Users\\P154492\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\p154492\\Documents\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
+        "projectUniqueName": "C:\\Users\\P154492\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
         "projectName": "HIDlsl",
-        "projectPath": "C:\\Users\\p154492\\Documents\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
-        "packagesPath": "C:\\Users\\p154492\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\p154492\\Documents\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\obj\\",
+        "projectPath": "C:\\Users\\P154492\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
+        "packagesPath": "C:\\Users\\P154492\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\P154492\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\p154492\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\P154492\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0-windows7.0"
+          "net6.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -31,8 +30,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0-windows7.0": {
-            "targetAlias": "net7.0-windows",
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
             "projectReferences": {}
           }
         },
@@ -43,8 +42,8 @@
         }
       },
       "frameworks": {
-        "net7.0-windows7.0": {
-          "targetAlias": "net7.0-windows",
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
           "dependencies": {
             "SharpDX": {
               "target": "Package",
@@ -73,7 +72,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.2.22153.17\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300-preview.22204.3\\RuntimeIdentifierGraph.json"
         }
       }
     }

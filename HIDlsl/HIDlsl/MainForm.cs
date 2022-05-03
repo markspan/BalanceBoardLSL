@@ -1,10 +1,6 @@
 
-//using System.Reactive.Linq;
 using LSL;
 using SharpDX.DirectInput;
-
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-#pragma warning disable CS8604 // Dereference of a possibly null reference.
 
 /*
  * To read the XDF data correctly into MATLAB use load_xdf, and then do:
@@ -30,6 +26,7 @@ namespace HIDlsl
             InitializeComponent();
 
             // Find a Joystick Guid
+           
             foreach (var deviceInstance in directInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices))
                 if (deviceInstance.ProductGuid.ToString().Contains("1b6f") && deviceInstance.ProductGuid.ToString().Contains("9206")) // Guid for the Adapted BalanceBoard
                 {
@@ -52,8 +49,8 @@ namespace HIDlsl
             {
                 Linked = true;
                 sender.Text = "Unlink";
-                device = deviceList.ElementAt(BoardSelector.SelectedIndex);
-                LSLThread = new Thread(() => MainForJoystick((Guid)device.InstanceGuid));
+                device = deviceList?.ElementAt(BoardSelector.SelectedIndex);
+                LSLThread = new Thread(() => MainForJoystick(Board: device.InstanceGuid));
                 LSLThread.Start();
             }
             else
@@ -77,15 +74,15 @@ namespace HIDlsl
             joystick.Acquire();
 
             // Initialize LSL:
-            liblsl.StreamInfo info = new(device.ProductName + "(USB)", "Mocap", 5, 100, liblsl.channel_format_t.cf_int32, "sddsfsdf");
-            liblsl.XMLElement Setup = info.desc().append_child("Setup");
+            liblsl.StreamInfo info = new(device?.ProductName + "(USB)", "Mocap", 5, 100, liblsl.channel_format_t.cf_int32, "sddsfsdf");
+            liblsl.XMLElement Setup = info.desc().append_child("setup");
 
             Setup.append_child_value("Author", "M.M.Span");
             Setup.append_child_value("Manifacturer", "University of Groningen");
             Setup.append_child_value("Manual", "markspan.github.io");
             Setup.append_child_value("Model", "Adapted USB WiiBalanceBoard");
 
-            liblsl.XMLElement Channels = info.desc().append_child("Channels");
+            liblsl.XMLElement Channels = info.desc().append_child("channels");
             Channels.append_child("channel")
                 .append_child_value("label", "Weight_BottomLeft")
                 .append_child_value("type", "Force")
