@@ -52,7 +52,7 @@
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(100, 15);
             this.NameLabel.TabIndex = 1;
-            this.NameLabel.Text = "BalanceBoardUSB";
+            this.NameLabel.Text = "BalanceBoard / RE USB";
             // 
             // UniversityLabel
             // 
@@ -91,7 +91,7 @@
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.LinkButton);
             this.Name = "MainForm";
-            this.Text = "HIDBB - lsl";
+            this.Text = "HIDBB/RE - lsl";
             this.ResumeLayout(false);
             this.PerformLayout();
 

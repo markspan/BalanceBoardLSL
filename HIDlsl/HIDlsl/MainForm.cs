@@ -18,17 +18,17 @@ namespace HIDlsl
         Thread? LSLThread;
         Joystick? joystick;
         readonly DirectInput? directInput = new();
-        readonly List<DeviceInstance>? deviceList = new();
+        readonly List<DeviceInstance> deviceList = new();
         DeviceInstance? device;
 
         public MainForm()
         {
             InitializeComponent();
 
-            // Find a Joystick Guid
+            // Find a Joystick Guid (for BB)
 
             foreach (var deviceInstance in directInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices))
-                if (deviceInstance.ProductGuid.ToString().Contains("1b6f") && deviceInstance.ProductGuid.ToString().Contains("9206")) // Guid for the Adapted BalanceBoard
+                if (deviceInstance.ProductGuid.ToString().Contains("1b6f"))  // Guid for the Adapted BalanceBoard
                 {
                     this.BoardSelector.Items.Add(deviceInstance.ProductName);
                     deviceList.Add(deviceInstance);
@@ -37,7 +37,7 @@ namespace HIDlsl
 
             // or an Supplemental, I dont know why some arduino micros advertise themselves as 'Supplemental'
             foreach (var deviceInstance in directInput.GetDevices(DeviceType.Supplemental, DeviceEnumerationFlags.AllDevices))
-                if (deviceInstance.ProductGuid.ToString().Contains("2341") && deviceInstance.ProductGuid.ToString().Contains("8037")) // Guid for the Micro rotary
+                if (deviceInstance.ProductGuid.ToString().Contains("2341"))  // Guid for the Micro rotary
                 {
                     this.BoardSelector.Items.Add(deviceInstance.ProductName);
                     deviceList.Add(deviceInstance);
@@ -60,14 +60,14 @@ namespace HIDlsl
                 Linked = true;
                 sender.Text = "Unlink";
                 BoardSelector.Enabled = false;
-                device = deviceList?.ElementAt(BoardSelector.SelectedIndex);
-                var id = device.InstanceGuid.ToString();
-                if (id.Contains("6eb7d0a0-b736-11ec-8006-444553540000"))
+                device = deviceList.ElementAt(BoardSelector.SelectedIndex);
+                var id = device.ProductName;
+                if (id.Contains("BalanceBoard"))
                     LSLThread = new Thread(() => MainForBB(Board: device.InstanceGuid));
-                else if (id.Contains("da874580-c4ac-11ec"))
+                else if (id.Contains("Micro"))
                     LSLThread = new Thread(() => MainForRE(Board: device.InstanceGuid));
 
-                LSLThread.Start();
+                LSLThread?.Start();
             }
             else
             {
@@ -101,7 +101,7 @@ namespace HIDlsl
             liblsl.XMLElement Channels = info.desc().append_child("channels");
             Channels.append_child("channel")
                 .append_child_value("label", "Rotary Position")
-                .append_child_value("type", "Angle")
+                .append_child_value("type", "Force")
                 .append_child_value("unit", "Arbitrary units");
             Channels.append_child("channel")
                 .append_child_value("label", "SawTooth")
@@ -124,12 +124,12 @@ namespace HIDlsl
                         switch (state.Offset)
                         {
                             case JoystickOffset.X:
-                                // Left Bottom Sensor
+                                // Rotary encoder
                                 lslout[0] = state.Value;
                                 break;
                             case JoystickOffset.RotationY:
                                 // RotationY axis is the sawtooth axis. If this value changes a new sample is recorded.
-                                // This method anables sampling with a fixed sample frequency: the sample frequency of the BalanceBoard.
+                                // This method anables sampling with a fixed sample frequency: the sample frequency of the Encoder.
                                 lslout[1] = ++saw;
                                 if (saw >= 100)
                                     saw = 0;
