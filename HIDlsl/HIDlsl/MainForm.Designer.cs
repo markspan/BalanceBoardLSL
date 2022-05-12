@@ -50,14 +50,14 @@
             this.NameLabel.AutoSize = true;
             this.NameLabel.Location = new System.Drawing.Point(124, 9);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(100, 15);
+            this.NameLabel.Size = new System.Drawing.Size(127, 15);
             this.NameLabel.TabIndex = 1;
             this.NameLabel.Text = "BalanceBoard / RE USB";
             // 
             // UniversityLabel
             // 
             this.UniversityLabel.AutoSize = true;
-            this.UniversityLabel.Location = new System.Drawing.Point(111, 24);
+            this.UniversityLabel.Location = new System.Drawing.Point(121, 24);
             this.UniversityLabel.Name = "UniversityLabel";
             this.UniversityLabel.Size = new System.Drawing.Size(132, 15);
             this.UniversityLabel.TabIndex = 2;
@@ -66,9 +66,9 @@
             // BoardSelector
             // 
             this.BoardSelector.FormattingEnabled = true;
-            this.BoardSelector.Location = new System.Drawing.Point(81, 81);
+            this.BoardSelector.Location = new System.Drawing.Point(90, 81);
             this.BoardSelector.Name = "BoardSelector";
-            this.BoardSelector.Size = new System.Drawing.Size(265, 23);
+            this.BoardSelector.Size = new System.Drawing.Size(256, 23);
             this.BoardSelector.TabIndex = 3;
             // 
             // BoardSelectLabel
@@ -76,9 +76,9 @@
             this.BoardSelectLabel.AutoSize = true;
             this.BoardSelectLabel.Location = new System.Drawing.Point(12, 84);
             this.BoardSelectLabel.Name = "BoardSelectLabel";
-            this.BoardSelectLabel.Size = new System.Drawing.Size(63, 15);
+            this.BoardSelectLabel.Size = new System.Drawing.Size(72, 15);
             this.BoardSelectLabel.TabIndex = 4;
-            this.BoardSelectLabel.Text = "BoardGuid";
+            this.BoardSelectLabel.Text = "Devicename";
             // 
             // MainForm
             // 

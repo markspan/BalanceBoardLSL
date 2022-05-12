@@ -2,7 +2,7 @@
 using LSL;
 using SharpDX.DirectInput;
 
-/*
+/* For BB:
  * To read the XDF data correctly into MATLAB use load_xdf, and then do:
  * 
  * plot(double(bitshift(uint32(data'), -8)) / 2.7). 
@@ -24,7 +24,7 @@ namespace HIDlsl
         public MainForm()
         {
             InitializeComponent();
-
+           
             // Find a Joystick Guid (for BB)
 
             foreach (var deviceInstance in directInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices))
@@ -60,12 +60,20 @@ namespace HIDlsl
                 Linked = true;
                 sender.Text = "Unlink";
                 BoardSelector.Enabled = false;
+                
                 device = deviceList.ElementAt(BoardSelector.SelectedIndex);
                 var id = device.ProductName;
+                
+                joystick = new Joystick(directInput, device.InstanceGuid);
+                // Set BufferSize in order to use buffered data.
+                joystick.Properties.BufferSize = 20;
+                // Acquire the joystick
+                joystick.Acquire();
+
                 if (id.Contains("BalanceBoard"))
-                    LSLThread = new Thread(() => MainForBB(Board: device.InstanceGuid));
+                    LSLThread = new Thread(() => MainForBB());
                 else if (id.Contains("Micro"))
-                    LSLThread = new Thread(() => MainForRE(Board: device.InstanceGuid));
+                    LSLThread = new Thread(() => MainForRE());
 
                 LSLThread?.Start();
             }
@@ -79,16 +87,9 @@ namespace HIDlsl
                 LSLThread = null;
             }
         }
-        private void MainForRE(Guid Board)
+        private void MainForRE()
         {
-            joystick = new Joystick(directInput, Board);
-
-            // Set BufferSize in order to use buffered data.
-            joystick.Properties.BufferSize = 20;
-
-            // Acquire the joystick
-            joystick.Acquire();
-
+    
             // Initialize LSL:
             liblsl.StreamInfo info = new(device?.ProductName + "(USB)", "Mocap", 2, 100, liblsl.channel_format_t.cf_int32, "sddsfsdf");
             liblsl.XMLElement Setup = info.desc().append_child("setup");
@@ -118,7 +119,8 @@ namespace HIDlsl
             {
                 while (newdata == false)
                 {
-                    var datas = joystick.GetBufferedData();
+                    var datas = joystick?.GetBufferedData();
+                    if (datas != null)
                     foreach (var state in datas)
                     {
                         switch (state.Offset)
@@ -145,18 +147,9 @@ namespace HIDlsl
             }
             System.GC.Collect();
         }
-
-        private void MainForBB(Guid Board)
+ 
+        private void MainForBB()
         {
-
-            joystick = new Joystick(directInput, Board);
-
-            // Set BufferSize in order to use buffered data.
-            joystick.Properties.BufferSize = 20;
-
-            // Acquire the joystick
-            joystick.Acquire();
-
             // Initialize LSL:
             liblsl.StreamInfo info = new(device?.ProductName + "(USB)", "Mocap", 5, 100, liblsl.channel_format_t.cf_int32, "sddsfsdf");
             liblsl.XMLElement Setup = info.desc().append_child("setup");
@@ -198,7 +191,8 @@ namespace HIDlsl
             {
                 while (newdata == false)
                 {
-                    var datas = joystick.GetBufferedData();
+                    var datas = joystick?.GetBufferedData();
+                    if (datas != null)
                     foreach (var state in datas)
                     {
                         switch (state.Offset)
