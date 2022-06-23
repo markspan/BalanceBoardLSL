@@ -4,6 +4,13 @@ Firmware to attach a wii balance board via usb to a pc. Arduino micro pro code.
 
 Soldered four wires to the BB PCB: outputs of the op2333 operational amplifiers (U1 and U2) to A0-A4
 
+Edit Program files (x86)\Arduino\hardware\arduino\avr\boards.txt 
+
+390 micro.build.vid=0x2341
+391 micro.build.pid=0x1b6f
+492 micro.build.usb_product="Adapted BalanceBoard #x"
+
+
 Problem solved: the BB will shut down after one second if not connected through BT.....
 
 
