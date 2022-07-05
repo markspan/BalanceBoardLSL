@@ -28,12 +28,13 @@ namespace HIDlsl
             // Find a Joystick Guid (for BB)
 
             foreach (var deviceInstance in directInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices))
-                if (deviceInstance.ProductGuid.ToString().Contains("1b6f"))  // Guid for the Adapted BalanceBoard
+                if (deviceInstance.ProductGuid.ToString().Contains("1b6f") || deviceInstance.ProductGuid.ToString().Contains("1b70"))  // Guid for the Adapted BalanceBoard
                 {
                     this.BoardSelector.Items.Add(deviceInstance.ProductName);
                     deviceList.Add(deviceInstance);
                     this.BoardSelector.SelectedIndex++;
                 }
+
 
             // or an Supplemental, I dont know why some arduino micros advertise themselves as 'Supplemental'
             foreach (var deviceInstance in directInput.GetDevices(DeviceType.Supplemental, DeviceEnumerationFlags.AllDevices))
