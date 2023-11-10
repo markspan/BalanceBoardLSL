@@ -3,8 +3,6 @@ C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\Release\net6
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\Release\net6.0-windows\HIDlsl.runtimeconfig.json
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\Release\net6.0-windows\HIDlsl.dll
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\Release\net6.0-windows\HIDlsl.pdb
-C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\Release\net6.0-windows\SharpDX.dll
-C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\Release\net6.0-windows\SharpDX.DirectInput.dll
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\HIDlsl.csproj.AssemblyReference.cache
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\HIDlsl.MainForm.resources
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\HIDlsl.csproj.GenerateResource.cache
@@ -12,9 +10,11 @@ C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\HIDlsl.AssemblyInfoInputs.cache
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\HIDlsl.AssemblyInfo.cs
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\HIDlsl.csproj.CoreCompileInputs.cache
-C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\HIDlsl.csproj.CopyComplete
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\HIDlsl.dll
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\refint\HIDlsl.dll
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\HIDlsl.pdb
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\HIDlsl.genruntimeconfig.cache
 C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\ref\HIDlsl.dll
+C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\Release\net6.0-windows\HIDlsl.xml
+C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\HIDlsl.xml
+C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Release\net6.0-windows\HIDlsl.csproj.Fody.CopyLocal.cache

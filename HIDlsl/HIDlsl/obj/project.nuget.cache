@@ -1,13 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "koDxAUfscFBZvtNRRS6KQ4NdehiVC7mOjak3L8mhHEA5HCCucTiM3pHveqgfqqKTsoOrnZxcAOLWWHfyHAIrxg==",
+  "dgSpecHash": "DMLSpy4S7uERYnKQxCkoyC5BGgRYDhD6ObnO3CIF6h9O/KUydkNZ7KV5YPCy/Y5Emoqr5R06dR1vt/Nk1/rRqA==",
   "success": true,
   "projectFilePath": "C:\\Users\\P154492\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\P154492\\.nuget\\packages\\costura.fody\\5.7.0\\costura.fody.5.7.0.nupkg.sha512",
+    "C:\\Users\\P154492\\.nuget\\packages\\fody\\6.5.5\\fody.6.5.5.nupkg.sha512",
+    "C:\\Users\\P154492\\.nuget\\packages\\ilrepack.lib.msbuild.task\\2.0.16\\ilrepack.lib.msbuild.task.2.0.16.nupkg.sha512",
     "C:\\Users\\P154492\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\P154492\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\P154492\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\P154492\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
+    "C:\\Users\\P154492\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
     "C:\\Users\\P154492\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\P154492\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\P154492\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

@@ -2,6 +2,8 @@
 using LSL;
 using SharpDX.DirectInput;
 
+
+
 /*
  * To read the XDF data correctly into MATLAB use load_xdf, and then do:
  * 
@@ -21,7 +23,9 @@ namespace HIDlsl
         readonly List<DeviceInstance> deviceList = new();
         DeviceInstance? device;
 
+
         public MainForm()
+
         {
             InitializeComponent();
 
