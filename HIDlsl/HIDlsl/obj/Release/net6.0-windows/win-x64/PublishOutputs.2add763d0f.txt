@@ -1,0 +1,8 @@
+C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\publish\HIDlsl.pdb
+C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\publish\D3DCompiler_47_cor3.dll
+C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\publish\PenImc_cor3.dll
+C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\publish\PresentationNative_cor3.dll
+C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\publish\vcruntime140_cor3.dll
+C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\publish\wpfgfx_cor3.dll
+C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\publish\HIDlsl.xml
+C:\Users\P154492\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\publish\HIDlsl.exe

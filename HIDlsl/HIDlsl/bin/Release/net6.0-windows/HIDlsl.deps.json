@@ -9,8 +9,6 @@
       "HIDlsl/1.0.0": {
         "dependencies": {
           "Costura.Fody": "5.7.0",
-          "ILRepack.Lib.MSBuild.Task": "2.0.16",
-          "Newtonsoft.Json": "12.0.1",
           "SharpDX": "4.2.0",
           "SharpDX.DirectInput": "4.2.0"
         },
@@ -31,7 +29,6 @@
         }
       },
       "Fody/6.5.5": {},
-      "ILRepack.Lib.MSBuild.Task/2.0.16": {},
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
       "Microsoft.Win32.Primitives/4.3.0": {
@@ -87,14 +84,6 @@
           "System.Threading.Timer": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XDocument": "4.3.0"
-        }
-      },
-      "Newtonsoft.Json/12.0.1": {
-        "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "assemblyVersion": "12.0.0.0",
-            "fileVersion": "12.0.1.22727"
-          }
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -751,13 +740,6 @@
       "path": "fody/6.5.5",
       "hashPath": "fody.6.5.5.nupkg.sha512"
     },
-    "ILRepack.Lib.MSBuild.Task/2.0.16": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ZwEMM/k8J18JhvyHuwwQCJ9u/piIkea9k7sS9ggPjxVD25mnawlLP9pmdnv4WB9WpUkS25zqKbhfQbPkEK52DQ==",
-      "path": "ilrepack.lib.msbuild.task/2.0.16",
-      "hashPath": "ilrepack.lib.msbuild.task.2.0.16.nupkg.sha512"
-    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
@@ -785,13 +767,6 @@
       "sha512": "sha512-WcSp3+vP+yHNgS8EV5J7pZ9IRpeDuARBPN28by8zqff1wJQXm26PVU8L3/fYLBJVU7BtDyqNVWq2KlCVvSSR4A==",
       "path": "netstandard.library/1.6.1",
       "hashPath": "netstandard.library.1.6.1.nupkg.sha512"
-    },
-    "Newtonsoft.Json/12.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
-      "path": "newtonsoft.json/12.0.1",
-      "hashPath": "newtonsoft.json.12.0.1.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
