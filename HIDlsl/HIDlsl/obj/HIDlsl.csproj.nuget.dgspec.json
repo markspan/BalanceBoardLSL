@@ -1,28 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\P154492\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {}
+    "C:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {}
   },
   "projects": {
-    "C:\\Users\\P154492\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {
+    "C:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\P154492\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
+        "projectUniqueName": "C:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
         "projectName": "HIDlsl",
-        "projectPath": "C:\\Users\\P154492\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
-        "packagesPath": "C:\\Users\\P154492\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\P154492\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\obj\\",
+        "projectPath": "C:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\HIDlsl.csproj",
+        "packagesPath": "C:\\Users\\mmspa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mmspa\\Documents\\GitHub\\BalanceBoardLSL\\HIDlsl\\HIDlsl\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\P154492\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mmspa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows"
+          "net8.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,8 +30,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0-windows7.0": {
-            "targetAlias": "net6.0-windows",
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows7.0",
             "projectReferences": {}
           }
         },
@@ -39,19 +39,27 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows7.0",
           "dependencies": {
-            "SharpDX": {
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[4.2.0, )"
+              "version": "[8.0.15, )",
+              "autoReferenced": true
             },
-            "SharpDX.DirectInput": {
+            "hidlibrary": {
               "target": "Package",
-              "version": "[4.2.0, )"
+              "version": "[3.3.40, )"
             }
           },
           "imports": [
@@ -68,15 +76,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[6.0.21, 6.0.21]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[6.0.21, 6.0.21]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[6.0.21, 6.0.21]"
+              "version": "[8.0.15, 8.0.15]"
             }
           ],
           "frameworkReferences": {
@@ -87,7 +95,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
