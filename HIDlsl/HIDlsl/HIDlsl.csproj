@@ -22,5 +22,11 @@
     <PackageReference Include="hidlibrary" Version="3.3.40" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="lsl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
  
 </Project>

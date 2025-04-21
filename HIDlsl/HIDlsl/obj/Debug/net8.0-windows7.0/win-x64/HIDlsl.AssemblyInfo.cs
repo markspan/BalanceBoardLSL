@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HIDlsl")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05f1b3fdbf901cd9fd80fc9fada7129d478d0afe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a1ddf8b0e3bde82f2144f29f686fdfb68416467")]
 [assembly: System.Reflection.AssemblyProductAttribute("HIDlsl")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HIDlsl")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

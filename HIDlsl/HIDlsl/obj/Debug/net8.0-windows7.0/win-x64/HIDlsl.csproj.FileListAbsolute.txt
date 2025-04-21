@@ -479,3 +479,4 @@ C:\Users\mmspa\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Debug\net8.0-w
 C:\Users\mmspa\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Debug\net8.0-windows7.0\win-x64\HIDlsl.pdb
 C:\Users\mmspa\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Debug\net8.0-windows7.0\win-x64\HIDlsl.genruntimeconfig.cache
 C:\Users\mmspa\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\obj\Debug\net8.0-windows7.0\win-x64\ref\HIDlsl.dll
+C:\Users\mmspa\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\Debug\net8.0-windows7.0\win-x64\lsl.dll

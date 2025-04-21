@@ -1,4 +1,5 @@
 C:\Users\mmspa\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\publish\HIDlsl.pdb
+C:\Users\mmspa\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\publish\lsl.dll
 C:\Users\mmspa\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\publish\D3DCompiler_47_cor3.dll
 C:\Users\mmspa\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\publish\PenImc_cor3.dll
 C:\Users\mmspa\Documents\GitHub\BalanceBoardLSL\HIDlsl\HIDlsl\bin\publish\PresentationNative_cor3.dll
