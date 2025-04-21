@@ -451,6 +451,85 @@
         <member name="M:LSL.liblsl.check_error(System.Int32)">
             Check an error condition and throw an exception if appropriate.
         </member>
+        <member name="T:HIDlsl.MainForm">
+            <summary>
+            The main form of the application, which handles HID device interaction and LSL streaming.
+            </summary>
+        </member>
+        <member name="M:HIDlsl.MainForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HIDlsl.MainForm"/> class.
+            </summary>
+        </member>
+        <member name="M:HIDlsl.MainForm.InitializeUI">
+            <summary>
+            Initializes the user interface components.
+            </summary>
+        </member>
+        <member name="M:HIDlsl.MainForm.BoardSelector_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            Handles the event when the selected index of the board selector changes.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:HIDlsl.MainForm.ExtractDeviceName(System.String)">
+            <summary>
+            Extracts the device name from the device path.
+            </summary>
+            <param name="devicePath">The device path.</param>
+            <returns>The extracted device name.</returns>
+        </member>
+        <member name="M:HIDlsl.MainForm.InitializeDeviceList">
+            <summary>
+            Initializes the device list with available HID devices.
+            </summary>
+        </member>
+        <member name="M:HIDlsl.MainForm.AddDeviceToList(HidLibrary.HidDevice)">
+            <summary>
+            Adds a device instance to the device list and updates the UI.
+            </summary>
+            <param name="device">The device instance to add.</param>
+        </member>
+        <member name="M:HIDlsl.MainForm.DisplayNoDeviceError">
+            <summary>
+            Displays an error message when no device is found.
+            </summary>
+        </member>
+        <member name="M:HIDlsl.MainForm.StartLSL(System.Windows.Forms.Button)">
+            <summary>
+            Starts or stops the LSL thread based on the current link status.
+            </summary>
+            <param name="sender">The button that triggered the event.</param>
+        </member>
+        <member name="M:HIDlsl.MainForm.MainForBB(HidLibrary.HidDevice)">
+            <summary>
+            Main method for handling the BalanceBoard device.
+            </summary>
+            <param name="device">The HID device.</param>
+        </member>
+        <member name="M:HIDlsl.MainForm.AddChannel(LSL.liblsl.XMLElement,System.String,System.String,System.String)">
+            <summary>
+            Adds a channel to the LSL stream description.
+            </summary>
+            <param name="channels">The channels element.</param>
+            <param name="label">The label of the channel.</param>
+            <param name="type">The type of the channel.</param>
+            <param name="unit">The unit of the channel.</param>
+        </member>
+        <member name="M:HIDlsl.MainForm.OnReadReport(HidLibrary.HidReport)">
+            <summary>
+            Handles the read report event.
+            </summary>
+            <param name="report">The report data.</param>
+        </member>
+        <member name="M:HIDlsl.MainForm.LinkButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the LinkButton control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
         <member name="F:HIDlsl.MainForm.components">
             <summary>
              Required designer variable.
